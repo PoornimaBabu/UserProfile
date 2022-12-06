@@ -1,53 +1,43 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Badge from "@mui/material/Badge";
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
 import { red } from "@mui/material/colors";
-// import MoreVertIcon from "@mui/icons-material/MoreVert";
-import IconButton from "@mui/material/IconButton";
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { Grid, Typography } from "@mui/material";
 
 
-const SmallAvatar = styled(Avatar)(({ theme }) => ({
-  width: 50,
-  height: 50,
-  // backgroundColor: "#fff",
-  backgroundColor: red[500],
-  fontColor: "#000"
-  // border: `2px solid `
-}));
+export default function ProfileBadge(props) {
 
-export default function ProfileBadge() {
+  let {name, email} = props
+
   return (
-    <Stack direction="row" spacing={2} justifyContent="center" marginTop={25} marginBottom={25}>
-      <Badge
-        overlap="circular"
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        badgeContent={
-          // <SmallAvatar
-          //   variant="rounded"
-          //   onClick={() => console.log("clicked")}
-          //   alt="Remy Sharp"
-          //   src="/static/images/avatar/1.jpg"
-          // />
-          <Avatar
-            variant="rounded"
-            sx={{ bgcolor: red[500] }}
-            aria-label="recipe"
+    <div>
+      <Grid container direction="column" spacing={1} marginTop={25} marginBottom={22} marginLeft={15}>
+        <Grid item >
+          <Badge
+            overlap="circular"
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            badgeContent={
+              <Avatar
+                variant="rounded"
+                sx={{ bgcolor: red[500] }}
+                aria-label="recipe"
+              >
+              <AddAPhotoIcon />
+              </Avatar>
+            }
           >
-            P{/* <IconButton aria-label="settings"> */}
-            {/* <MoreVertIcon /> */}
-            {/* </IconButton> */}
-          </Avatar>
-        }
-      >
-        <Avatar
-          sx={{ width: 100, height: 100, fontSize: "50px" }}
-          variant="rounded"
-          alt="Travis Howard"
-          src="/static/images/avatar/2.jpg"
-        />
-      </Badge>
-    </Stack>
+            <Avatar
+              sx={{ width: 100, height: 100, fontSize: "50px" }}
+              variant="rounded"
+              alt={name ? (name.charAt(0).toUpperCase()) : ''}
+              src="/static/images/avatar/2.jpg"
+            />
+          </Badge>
+      </Grid>
+      <Grid item ><Typography >{name}</Typography></Grid>
+      <Grid item ><Typography variant="subtitle1" style={{color: 'primary'}}>{email}</Typography></Grid>   
+    </Grid>
+    </div>
   );
 }
