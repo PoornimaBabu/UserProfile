@@ -10,7 +10,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import MuiDrawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import { styled, useTheme } from "@mui/material/styles";
-
+import kyro from '../assets/kyro.png'
 
 
 const drawerWidth = 240;
@@ -84,9 +84,10 @@ export default function AppDrawer(){
     return <div>
         <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <IconButton onClick={handleDrawer}>
-            {theme.direction === "rtl" ? <MenuIcon /> : <MenuIcon />}
-          </IconButton>
+            <img src={kyro} sx={{height: 10}} alt="K" />
+            <IconButton onClick={handleDrawer}>
+                {theme.direction === "rtl" ? <MenuIcon /> : <MenuIcon />}
+            </IconButton>
         </DrawerHeader>
 
         <List>
