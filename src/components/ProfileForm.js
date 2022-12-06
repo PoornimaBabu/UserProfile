@@ -73,7 +73,7 @@ export default function ProfileForm(props){
           width: 800
         }}
       >
-        <Typography variant="h6">Good {day ? 'Morning' : 'Evening'}, {users?.firstname}</Typography>
+        <Typography variant="h6">Hello! Good {day ? 'Morning' : 'Evening'}, {users?.firstname}</Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">{time}</Typography>
         <Typography variant="h6">My Profile</Typography>
         <Card sx={{ padding: "50px" }}>
